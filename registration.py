@@ -2,6 +2,7 @@ import tkinter as tk
 import sqlite3
 import smtplib
 
+
 def reg():
     root = tk.Tk()
 
@@ -51,4 +52,3 @@ def reg():
     passwordReg_entry = tk.Entry(root, textvariable=passwordReg_var).grid(row=2,column=1)
 
     register_button = tk.Button(root, text="Register", command=lambda: [add_cred(), send_email(), close_reg()]).grid(row=3, column=0, columnspan=2)
-
