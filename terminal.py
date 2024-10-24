@@ -7,7 +7,7 @@ import time
 # from tkhtmlview import HTMLLabel
 from login import log
 
-# log()
+log()
 
 root = tk.Tk()
 root.title("Grass Terminal")
@@ -45,7 +45,7 @@ sp500_p()
 stock_var = tk.StringVar()
 
 
-def ticker_price():
+def ticker_price(event):
     stock = stock_var.get()
     response = requests.get(f'https://api.nasdaq.com/api/quote/{stock}/realtime-trades?&limit=5')
     price = response.json()['data']['rows'][0]['nlsPrice']
