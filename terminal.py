@@ -6,20 +6,21 @@ import time
 # import datetime
 # from tkhtmlview import HTMLLabel
 from login import *
+hours = ''
+
 
 def main():
+    global hours
     root = tk.Tk()
     root.title("Grass Terminal")
 
     sys.setrecursionlimit(1500)
 
-
 # clock
     def timing():
+        global hours
         current_time = time.strftime("%H : %M : %S")
         hours = int(time.strftime("%H"))
-        if hours > 21 or hours < 9:
-            root.after(50, lambda: root.destroy())
         clock.config(text=current_time)
         clock.after(200, timing)
 
@@ -28,17 +29,19 @@ def main():
     clock.grid(row=0, column=0)
     timing()
 
+    if hours > 14:
+        def sp500_p():
+            response_sp = requests.get('https://api.nasdaq.com/api/quote/watchlist?symbol=spx%7cindex&symbol=aapl%7cstocks&symbol=sp%7cfutures&symbol=indu%7cindex&symbol=tsla%7cstocks&type=Rv')
+            print(response_sp)
+            print(response_sp.status_code)
+            sp500 = response_sp.json()['data']['rows'][0]['lastSale']
+            sp500_label.config(text=f'S&P 500: ${sp500}')
+            sp500_label.after(100, sp500_p)
 
-    def sp500_p():
-        response_sp = requests.get('https://api.nasdaq.com/api/quote/watchlist?symbol=spx%7cindex&symbol=aapl%7cstocks&symbol=sp%7cfutures&symbol=indu%7cindex&symbol=tsla%7cstocks&type=Rv')
-        sp500 = response_sp.json()['data']['rows'][0]['lastSale']
-        sp500_label.config(text=f'S&P 500: ${sp500}')
-        sp500_label.after(100, sp500_p)
 
-
-    sp500_label = tk.Label(root)
-    sp500_label.grid(row=0, column=1, columnspan=2)
-    sp500_p()
+        sp500_label = tk.Label(root)
+        sp500_label.grid(row=0, column=1, columnspan=2)
+        sp500_p()
 
 # ticker search
     stock_var = tk.StringVar()
@@ -58,6 +61,13 @@ def main():
     stockSearch_entry = tk.Entry(root, textvariable=stock_var).grid(row=1, column=0)
     root.bind('<Return>', ticker_price)
 
+    # screener_options = [
+    #        "$ Gainers",
+    #        "$ Losers"
+    #        ]
+    # clicked = tk.StringVar()
+    # clicked.set("$ Gainers")
+    # drop = tk.OptionMenu(root, clicked, *screener_options).grid(row=3,column=0)
 
     tk.mainloop()
 
