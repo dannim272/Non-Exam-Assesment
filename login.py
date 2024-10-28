@@ -1,14 +1,12 @@
 import tkinter as tk
 import sqlite3
 from registration import reg
-
-a = False
+from terminal import main
 
 root = tk.Tk()
 root.title("Grass Terminal")
 # Functions
 def log_in():
-    global a
     global username
     global password
     username = user_var.get()
@@ -21,8 +19,8 @@ def log_in():
     if not logins:
         error_label = tk.Label(root, text="Login doesnt exist").grid(row=3, column=0, columnspan=2)
     elif password == logins[0]:
-        a = True
         root.after(50, lambda: root.destroy())
+        main()
     else:
         wrong_label = tk.Label(root, text="Wrong password").grid(row=3, column=0, columnspan=2)
 
