@@ -5,8 +5,6 @@ import time
 # import yfinance
 # import datetime
 # from tkhtmlview import HTMLLabel
-
-screened = False
 # hours and minutes var
 hours = 0
 minutes = 0
@@ -28,7 +26,15 @@ def main():
 
     # tckr labels
     tckr = tk.Label(root)
-
+    tckr1 = tk.Label(root)
+    tckr2 = tk.Label(root)
+    tckr3 = tk.Label(root)
+    tckr4 = tk.Label(root)
+    tckr.grid(row=(4), column=0)
+    tckr1.grid(row=(5), column=0)
+    tckr2.grid(row=(6), column=0)
+    tckr3.grid(row=(7), column=0)
+    tckr4.grid(row=(8), column=0)
 
     def timing():
         global hours
@@ -66,19 +72,27 @@ def main():
             price_label.config(text=price)
             price_label.after(200, ticker_price)
 
-    def submit(tckr):
-        if not screened:
-            screener()
+    def submit(tckr,tckr1,tckr2,tckr3,tckr4):
+        screener()
+        root.after(50, lambda: tckr.config(text=''))
+        root.after(50, lambda: tckr1.config(text=''))
+        root.after(50, lambda: tckr2.config(text=''))
+        root.after(50, lambda: tckr3.config(text=''))
+        root.after(50, lambda: tckr4.config(text=''))
         if clicked.get() == "$ Gainers":
-            for i in range(0,g):
-                if (g - i) > 0:
-                    root.after(50, lambda: tckr.config(text=gainers[i]))
-                    tckr.grid(row=(i+4), column=0)
+            print('gainers - ',gainers)
+            root.after(50, lambda: tckr.config(text=gainers[0]))
+            root.after(50, lambda: tckr1.config(text=gainers[1]))
+            root.after(50, lambda: tckr2.config(text=gainers[2]))
+            root.after(50, lambda: tckr3.config(text=gainers[3]))
+            root.after(50, lambda: tckr4.config(text=gainers[4]))
         if clicked.get() == "$ Losers":
-            for i in range(0,l):
-                if (l - i) > 0:
-                    root.after(50, lambda: tckr.config(text=losers[i]))
-                    tckr.grid(row=(i+4), column=0)
+            print('losers - ',losers)
+            root.after(50, lambda: tckr.config(text=losers[0]))
+            root.after(50, lambda: tckr1.config(text=losers[1]))
+            root.after(50, lambda: tckr2.config(text=losers[2]))
+            root.after(50, lambda: tckr3.config(text=losers[3]))
+            root.after(50, lambda: tckr4.config(text=losers[4]))
 
     def screener():
         global g
@@ -88,14 +102,20 @@ def main():
         for stock in stocks:
             try:
                 if (stocks[stock]['daysGap'] > 1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
-                    gainers.append(stock)
-                    g += 1
-                    if g == 5:
+                    if stock in gainers:
+                        pass
+                    else:
+                        gainers.append(stock)
+                        g += 1
+                    if g > 4:
                         break
                 if (stocks[stock]['daysGap'] < -1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
-                    losers.append(stock)
-                    l += 1
-                    if l == 5:
+                    if stock in losers:
+                        pass
+                    else:
+                        losers.append(stock)
+                        l += 1
+                    if l > 4:
                         break
             except KeyError:
                 pass
@@ -124,7 +144,7 @@ def main():
     clicked.set("$ Gainers")
     drop = tk.OptionMenu(root, clicked, *screener_options).grid(row=3, column=0)
 
-    button = tk.Button(root, text='Submit', command=lambda: submit(tckr)).grid(row=3, column=1)
+    button = tk.Button(root, text='Submit', command=lambda: submit(tckr,tckr1,tckr2,tckr3,tckr4)).grid(row=3, column=1)
 
     tk.mainloop()
 
