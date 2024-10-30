@@ -6,19 +6,28 @@ import time
 # import datetime
 # from tkhtmlview import HTMLLabel
 
-past = False
+screened = False
 # hours and minutes var
 hours = 0
 minutes = 0
-a = 0
+g = 0
+l = 0
 
 def main():
-    global a
+    # vars
+    global g
+    global l
     global hours
     global minutes
+    global screened
+    global tckr
+
     root = tk.Tk()
     root.title("Grass Terminal")
     sys.setrecursionlimit(1500)
+
+    # tckr labels
+    tckr = tk.Label(root)
 
 
     def timing():
@@ -35,7 +44,6 @@ def main():
 
         # pre-market
         if (hours < 14):
-            print('in pm')
             response = requests.get(f'https://api.nasdaq.com/api/quote/{stock}/extended-trading?markettype=pre&assetclass=Stocks&time=0')
             print(response.status_code)
             price = response.json()['data']['tradeDetailTabel']['rows'][0]['price']
@@ -44,7 +52,6 @@ def main():
 
         # real-time
         if (hours > 15 and hours < 22):
-            print('in rm')
             response = requests.get(f'https://api.nasdaq.com/api/quote/{stock}/realtime-trades?&limit=5')
             print(response.status_code)
             price = response.json()['data']['rows'][0]['nlsPrice']
@@ -53,41 +60,42 @@ def main():
 
         # after hours
         if (hours > 21) or (hours == 21 and minutes > 0):
-            print('in ah')
             response = requests.get(f'https://api.nasdaq.com/api/quote/{stock}/extended-trading?markettype=post&assetclass=stocks&time=0')
             print(response.status_code)
             price = response.json()['data']['tradeDetailTabel']['rows'][0]['price']
             price_label.config(text=price)
             price_label.after(200, ticker_price)
 
-    def submit():
-        if not past:
+    def submit(tckr):
+        if not screened:
             screener()
-
         if clicked.get() == "$ Gainers":
-            for i in range(0,a):
-                tckr_g = tk.Label(root, text=gainers[i]).grid(row=(i+4), column=0)
-                full = True
+            for i in range(0,g):
+                if (g - i) > 0:
+                    root.after(50, lambda: tckr.config(text=gainers[i]))
+                    tckr.grid(row=(i+4), column=0)
         if clicked.get() == "$ Losers":
-            for i in range(0,a):
-                tckr_l = tk.Label(root, text=losers[i]).grid(row=(i+4), column=0)
-                full = True
+            for i in range(0,l):
+                if (l - i) > 0:
+                    root.after(50, lambda: tckr.config(text=losers[i]))
+                    tckr.grid(row=(i+4), column=0)
 
     def screener():
-        global a
+        global g
+        global l
         response = requests.get('https://api.stockanalysis.com/api/screener/s/bd/premarketChangePercent+premarketPrice+relativeVolume+daysGap.json')
         stocks = response.json()['data']['data']
         for stock in stocks:
             try:
                 if (stocks[stock]['daysGap'] > 1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
                     gainers.append(stock)
-                    a += 1
-                    if a == 8:
+                    g += 1
+                    if g == 7:
                         break
                 if (stocks[stock]['daysGap'] < -1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
                     losers.append(stock)
-                    a += 1
-                    if a == 7:
+                    l += 1
+                    if l == 7:
                         break
             except KeyError:
                 pass
@@ -116,8 +124,8 @@ def main():
     clicked.set("$ Gainers")
     drop = tk.OptionMenu(root, clicked, *screener_options).grid(row=3, column=0)
 
-    button = tk.Button(root, text='Submit', command=submit).grid(row=3, column=1)
+    button = tk.Button(root, text='Submit', command=lambda: submit(tckr)).grid(row=3, column=1)
 
     tk.mainloop()
 
-
+main()
