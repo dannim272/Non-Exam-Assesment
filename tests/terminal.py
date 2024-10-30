@@ -90,12 +90,12 @@ def main():
                 if (stocks[stock]['daysGap'] > 1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
                     gainers.append(stock)
                     g += 1
-                    if g == 7:
+                    if g == 5:
                         break
                 if (stocks[stock]['daysGap'] < -1) and (stocks[stock]['premarketPrice'] > 10) and (stocks[stock]['relativeVolume'] > 250):
                     losers.append(stock)
                     l += 1
-                    if l == 7:
+                    if l == 5:
                         break
             except KeyError:
                 pass
