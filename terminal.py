@@ -80,19 +80,17 @@ def main():
         root.after(50, lambda: tckr3.config(text=''))
         root.after(50, lambda: tckr4.config(text=''))
         if clicked.get() == "$ Gainers":
-            print('gainers - ',gainers)
-            root.after(50, lambda: tckr.config(text=gainers[0]))
-            root.after(50, lambda: tckr1.config(text=gainers[1]))
-            root.after(50, lambda: tckr2.config(text=gainers[2]))
-            root.after(50, lambda: tckr3.config(text=gainers[3]))
-            root.after(50, lambda: tckr4.config(text=gainers[4]))
+            root.after(50, lambda: tckr.config(text=f'{gainers[0]}: ${gainers[1]}'))
+            root.after(50, lambda: tckr1.config(text=f'{gainers[2]}: ${gainers[3]}'))
+            root.after(50, lambda: tckr2.config(text=f'{gainers[4]}: ${gainers[5]}'))
+            root.after(50, lambda: tckr3.config(text=f'{gainers[6]}: ${gainers[7]}'))
+            root.after(50, lambda: tckr4.config(text=f'{gainers[8]}: ${gainers[9]}'))
         if clicked.get() == "$ Losers":
-            print('losers - ',losers)
-            root.after(50, lambda: tckr.config(text=losers[0]))
-            root.after(50, lambda: tckr1.config(text=losers[1]))
-            root.after(50, lambda: tckr2.config(text=losers[2]))
-            root.after(50, lambda: tckr3.config(text=losers[3]))
-            root.after(50, lambda: tckr4.config(text=losers[4]))
+            root.after(50, lambda: tckr.config(text=f'{losers[0]}: ${losers[1]}'))
+            root.after(50, lambda: tckr1.config(text=f'{losers[2]}: ${losers[3]}'))
+            root.after(50, lambda: tckr2.config(text=f'{losers[4]}: ${losers[5]}'))
+            root.after(50, lambda: tckr3.config(text=f'{losers[6]}: ${losers[7]}'))
+            root.after(50, lambda: tckr4.config(text=f'{losers[8]}: ${losers[9]}'))
 
     def screener():
         global g
@@ -106,6 +104,7 @@ def main():
                         pass
                     else:
                         gainers.append(stock)
+                        gainers.append(stocks[stock]['premarketPrice'])
                         g += 1
                     if g > 4:
                         break
@@ -114,6 +113,7 @@ def main():
                         pass
                     else:
                         losers.append(stock)
+                        losers.append(stocks[stock]['premarketPrice'])
                         l += 1
                     if l > 4:
                         break
