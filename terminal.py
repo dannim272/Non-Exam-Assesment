@@ -49,7 +49,7 @@ def main():
         stock = stock_var.get()
 
         # pre-market
-        if (hours < 14):
+        if (hours < 14) or (hours == 14):
             response = requests.get(f'https://api.nasdaq.com/api/quote/{stock}/extended-trading?markettype=pre&assetclass=Stocks&time=0')
             print(response.status_code)
             price = response.json()['data']['tradeDetailTabel']['rows'][0]['price']
@@ -148,4 +148,3 @@ def main():
 
     tk.mainloop()
 
-main()
