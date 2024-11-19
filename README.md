@@ -1,6 +1,8 @@
 # Stock Analysis and Forecast Terminal (S.A.F.T.)
 coded in nvim btw
 
+Overview: this program is designed to help the user with research of stocks for either early hours trading or investing - I will probably say this multiple times in the writing of this project but it must be noted that this program is only fit for use in the early hours of market
+
 ## Table of Contents
 - **Documentation**
     - [project ideas](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Project%20Ideas.md)
@@ -25,7 +27,6 @@ pip:
 pip install tkinter, sqlite3, smtplib, requests, sys, time
 ```
 
-
 pip3:
 
 ```bash
@@ -39,9 +40,8 @@ python:
 python terminal.py
 ```
 
-
 python3:
 
 ```bash
-python3 terminal
+python3 terminal.py
 ```
