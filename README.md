@@ -11,15 +11,13 @@ coded in nvim btw
 - **Execution**
     - [running the program](####running-the-program)
 
-
 ### Installation
 #### program - download the program repo
     git clone https://github.com/dannim272/Non-Exam-Assesment.git
-
 #### libraries - download the libraries
 pip:
-'''
-    pip install tkinter, sqlite3, smtplib, requests, sys, time
+''' shell
+pip install tkinter, sqlite3, smtplib, requests, sys, time
 '''
 
 ### Execution
