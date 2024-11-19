@@ -7,6 +7,4 @@
 
 ### Installation
 #### program
-''''
     pip install tkinter
-''''
