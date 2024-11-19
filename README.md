@@ -7,7 +7,6 @@
 
 ### Installation
 #### program
-> pip:
+''''
     pip install tkinter
-    pip install sqlite3
-    pip install smtplib
+''''
