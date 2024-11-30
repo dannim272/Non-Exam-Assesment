@@ -1,0 +1,58 @@
+### Financial
+- **Stock Analysis app** - Base:  C and python
+	- It would collect data of "unusually volatile in the premarket" stocks, then it will analyse their patterns according to the 'essential patters' classification as well as looking for any 'pattern boosters', these stocks will then be presented to the viewer along side FTSE100 / SP500 stock graphs (depending on the country of stock that the viewer is looking at), for further analysis by the user. Whe
+	- Incorporation of API 
+- **Calculate the Market Risk of stock** - Base: C++ and python
+	- Evaluation of current portfolio with consideration of specific stock. 
+	- Yahoo could be used with the APIs 
+	- Automated for noobies - simple & automated
+
+### App for Phone
+- **Betting evaluation app** - Base: python
+	- EPL/LaLiga/Bundesliga/Seria A, NHL, NFL, NBA
+	- Gives user news and team (maybe player) stats
+		- News - 
+			- Team reports
+			- Player injuries
+			- Player not playing
+			- Games lost/won in a row
+			- Games lost/won with specific parameter
+		- Teams (Players) stats
+			- Teams stats 
+				- **NHL**
+					- Corsi
+					- G/P
+				- **EPL**
+					- Crs
+					- xG
+					- xGA
+					- Assists
+				- **NFL**
+					- Yards per att
+					- Yards per carry
+					- Yards per reception
+					- Fumbles
+					- TD per drive
+					- Sacks
+					- TFL - Tackle for Loss
+					- 
+				- Player Stats
+					- G/G
+					- TMP - total minutes played
+					- I/G
+					- **NBA**
+						- 2pts
+						- 3pts
+						- 3pts attempts
+						- 3p/tPts % 
+	- Keeps track of bets and later uses that to calculate "maximise" money won in order to change Kelly's criterion 
+- **Do Better** - Base: python
+	- User can add events, tasks and daily notes. These will be organised is timely manner, and pressure would be put on user to do tasks that are due in short amount of time. 
+	- User will be forced to do tasks/events that are due in short period of time, this will be done through locking out option to do any other tasks until urgent ones are done
+	- Alarms to remind of those events
+
+### Website
+- **Smart Search** - python
+	- User can input reasonably specific request, and the website will pull articles from different source (Google, DDG, Bing, Yahoo etc.) that answer the question. 
+	- The difference between this and normal search engine is that this one will take out the hustle of going through all the articles manually and will do it for you. Furthermore this will go through "hidden" sites.
+	- User would be able to broaden the search or narrow it - in terms of how exact the answer has to be to wording. 
