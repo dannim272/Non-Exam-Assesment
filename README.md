@@ -7,11 +7,11 @@ Overview: this program is designed to help the user with research of stocks for 
 - **Documentation**
     - [project ideas](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Project%20Ideas.md)
     - [specification](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Specification.md)
-- [**Installation**](#Installation)
-    - [program](#Program-)
-    - [libraries](#Libraries-)
-- [**Execution**](#Execution-)
-- [**Things to implement**](#Things-to-implement-)
+- [**Installation**](#installation)
+    - [program](#program-)
+    - [libraries](#libraries-)
+- [**Execution**](#execution-)
+- [**Things to implement**](#things-to-implement-)
 
 ## Installation
 ### Program - download the program repo
