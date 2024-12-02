@@ -12,6 +12,8 @@ Overview: this program is designed to help the user with research of stocks for 
     - [libraries](####libraries)
 - **Execution**
     - [running the program](####running-the-program)
+- *Future Goals**
+    - [Future Goals](##futuregoals) 
 
 ## Installation
 ### Program - download the program repo
@@ -36,3 +38,7 @@ python3:
 ```bash
 python3 terminal.py
 ```
+
+## futuregoals
+- Make the API work for current ticker price display
+- Implement the regression model of some sort or something similar
