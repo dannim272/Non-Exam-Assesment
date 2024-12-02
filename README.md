@@ -7,7 +7,7 @@ Overview: this program is designed to help the user with research of stocks for 
 > before **final** submit make sure to:
 > 1. delete 'main()' from terminal.py
 > 2. clear out the logins.db database (figure it out)
-> 3. compile the whole thing and make sure it works
+> 3. compile the whole thing and make sure it works - [this may work](https://www.geeksforgeeks.org/create-a-single-executable-from-a-python-project/)
 
 ## Table of Contents
 - **Documentation + all theoretical**
