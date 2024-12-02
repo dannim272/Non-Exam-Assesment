@@ -3,8 +3,14 @@ coded in nvim btw
 
 Overview: this program is designed to help the user with research of stocks for either early hours trading or investing - I will probably say this multiple times in the writing of this project but it must be noted that this program is only fit for use in the early hours of market
 
+> [!WARNING]
+> before **final** submit make sure to:
+> 1. delete 'main()' from terminal.py
+> 2. clear out the logins.db database (figure it out)
+> 3. compile the whole thing and make sure it works
+
 ## Table of Contents
-- **Documentation**
+- **Documentation + all theoretical**
     - [project ideas](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Project%20Ideas.md)
     - [specification](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Specification.md)
 - [**Installation**](#installation)
@@ -41,3 +47,4 @@ python3 terminal.py
 ## Things to implement
 - Make the API work for current ticker price display
 - Implement the regression model of some sort or something similar
+- Make the interface more appealing (probably darker colors)
