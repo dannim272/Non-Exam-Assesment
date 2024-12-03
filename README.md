@@ -45,6 +45,7 @@ python3 terminal.py
 ```
 
 ## Things to implement
-- Make the API work for current ticker price display
+- Make the API work for current ticker price display - **DONE**
+    - was a stupid mistake of infinite recursion
 - Implement the regression model of some sort or something similar
 - Make the interface more appealing (probably darker colors)
