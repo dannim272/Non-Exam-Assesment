@@ -60,7 +60,6 @@ def main():
             response = requests.get(f'https://api.stockanalysis.com/api/quotes/s/{stock}')
             price = response.json()['data']['p']
             price_label.config(text=price)
-            price_label.after(200, ticker_price(event))
 
         # after hours
         if (hours > 21) or (hours == 21 and minutes > 0):
