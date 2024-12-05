@@ -47,5 +47,7 @@ python3 terminal.py
 ## Things to implement
 - Make the API work for current ticker price display - **DONE**
     - was a stupid mistake of infinite recursion
-- Implement the regression model of some sort or something similar
-- Make the interface more appealing (probably darker colors)
+- Implement the regression model of some sort or something similar - **not going to work, so i'll do something less crazy**
+- Make the interface more appealing (probably darker colors) - **get done ASAP**
+- may implement graphs to compare spider (SP500) to other stocks
+    - this will require checkbutton, may work later on this (like on the weekend haha)

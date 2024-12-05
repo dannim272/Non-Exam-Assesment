@@ -30,11 +30,15 @@ def main():
     tckr2 = tk.Label(root)
     tckr3 = tk.Label(root)
     tckr4 = tk.Label(root)
-    tckr.grid(row=(4), column=0)
-    tckr1.grid(row=(5), column=0)
-    tckr2.grid(row=(6), column=0)
-    tckr3.grid(row=(7), column=0)
-    tckr4.grid(row=(8), column=0)
+    tckr.grid(row=(4), column=1)
+    tckr1.grid(row=(5), column=1)
+    tckr2.grid(row=(6), column=1)
+    tckr3.grid(row=(7), column=1)
+    tckr4.grid(row=(8), column=1)
+
+    # check button
+    check1 = tk.Checkbutton(root)
+    check1.grid(row=4, column=0)
 
     def timing():
         global hours
@@ -82,7 +86,8 @@ def main():
             root.after(50, lambda: tckr3.config(text=f'{gainers[6]}: ${gainers[7]}'))
             root.after(50, lambda: tckr4.config(text=f'{gainers[8]}: ${gainers[9]}'))
         if clicked.get() == "$ Losers":
-            root.after(50, lambda: tckr.config(text=f'{losers[0]}: ${losers[1]}'))
+            root.after(50, lambda: check1.config(text=f'{losers[0]}: ${losers[1]}'))
+            # root.after(50, lambda: tckr.config(text=f'{losers[0]}: ${losers[1]}'))
             root.after(50, lambda: tckr1.config(text=f'{losers[2]}: ${losers[3]}'))
             root.after(50, lambda: tckr2.config(text=f'{losers[4]}: ${losers[5]}'))
             root.after(50, lambda: tckr3.config(text=f'{losers[6]}: ${losers[7]}'))
