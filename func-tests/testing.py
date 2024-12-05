@@ -1,21 +1,40 @@
 import requests
 import yfinance as yf
 import numpy as np
+import matplotlib.pyplot as plt
 
-stock = yf.Ticker("pcg")
+stock = yf.Ticker("td")
+levels = stock.history(period="1mo")
+levels = levels.reset_index()
+levels = np.array(levels["Close"])
+
 data = stock.history(period="1d", interval="1m", prepost=True)
-pre_market_data = data.between_time("9:00","9:30")
-x = [540,541,542,543,544,545,546,547,548,549,550,551,552,553,554,555,556,557,558,559,560,561,562,563,564,565,566,567,568,569,570]
-x = np.array(x)
+pre_market_data = data.between_time("8:00","9:30")
 y = pre_market_data.reset_index()
-y = y["Close"]
+y = np.array(y["Close"])
 
-n = np.size(x)
-sumX = np.sum(x)
-sumY = np.sum(y)
-ssq = np.sum(x**2)
-multXY = np.sum(x*y)
-ssm = sumX**2
+b = 0
+o = 1
+s = 2
+p = 3
+r = 4
+u = 5
 
-a = (sumY(ssq)-sumX(multXY))/(n(ssq)-ssm)
-print(a)
+while True:
+    if levels[o] < levels[b] and levels[b] < levels[s] and levels[s] > levels[p] and levels[p] > levels[r] and levels[r] > levels[u]:
+        print(f'{levels[o]} - {levels[b]} - {levels[s]}')
+    b += 1
+    o += 1
+    s += 1
+    p += 1
+    r += 1
+    u += 1
+
+x = []
+a = 9
+for i in y:
+    x.append(a)
+    a += 0.5
+
+#-plt.plot(x,y)
+# plt.show()
