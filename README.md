@@ -1,4 +1,5 @@
 # Stock Analysis and Forecast Terminal (S.A.F.T.)
+## The Specification and Analysis is --> [here](https://github.com/dannim272/Non-Exam-Assesment/tree/master/written-spec)
 coded in nvim btw
 
 Overview: this program is designed to help the user with research of stocks for either early hours trading or investing - I will probably say this multiple times in the writing of this project but it must be noted that this program is only fit for use in the early hours of market
