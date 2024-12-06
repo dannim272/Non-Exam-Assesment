@@ -2,7 +2,7 @@ import yfinance as yf
 import numpy as np
 import matplotlib.pyplot as plt
 
-stock = yf.Ticker("td")
+stock = yf.Ticker("^gspc")
 levels = stock.history(period="1mo")
 levels = levels.reset_index()
 levels = np.array(levels["Close"])
@@ -18,5 +18,5 @@ for i in y:
     x.append(a)
     a += 0.5
 
-#-plt.plot(x,y)
-# plt.show()
+plt.plot(x,y)
+plt.show()
