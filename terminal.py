@@ -37,7 +37,8 @@ def main():
     tckr4.grid(row=(8), column=1)
 
     # check button
-    check1 = tk.Checkbutton(root)
+    check_var1 = tk.IntVar()
+    check1 = tk.Checkbutton(root, variable = check_var1)
     check1.grid(row=4, column=0)
 
     def timing():
@@ -71,6 +72,28 @@ def main():
             price = response.json()['data']['tradeDetailTabel']['rows'][0]['price']
             price_label.config(text=price)
             price_label.after(200, ticker_price)
+    def plot():
+        stock = yf.Ticker("aapl")
+        levels = stock.history(period="1mo")
+        levels = levels.reset_index()
+        levels = np.array(levels["Close"])
+        data = stock.history(period="1d", interval="1m", prepost=True)
+        pre_market_data = data.between_time("8:00","9:30")
+        y = pre_market_data.reset_index()
+        y = np.array(y["Close"])
+        x = []
+        a = 9
+        for i in y:
+            x.append(a)
+            a += 0.5
+
+        sp_fig = Figure(figsize=(5, 4), dpi=100)
+        ax = sp_fig.add_subplot(111)
+        ax.plot(x, y)
+        canvas = FigureCanvasTkAgg(sp_fig, root)
+        canvas.draw()
+        canvas.get_tk_widget().grid(row=4,column=4)
+
 
     def submit(tckr,tckr1,tckr2,tckr3,tckr4):
         screener()
@@ -80,7 +103,8 @@ def main():
         root.after(50, lambda: tckr3.config(text=''))
         root.after(50, lambda: tckr4.config(text=''))
         if clicked.get() == "$ Gainers":
-            root.after(50, lambda: tckr.config(text=f'{gainers[0]}: ${gainers[1]}'))
+            root.after(50, lambda: check1.config(text=f'{losers[0]}: ${losers[1]}'))
+            # root.after(50, lambda: tckr.config(text=f'{gainers[0]}: ${gainers[1]}'))
             root.after(50, lambda: tckr1.config(text=f'{gainers[2]}: ${gainers[3]}'))
             root.after(50, lambda: tckr2.config(text=f'{gainers[4]}: ${gainers[5]}'))
             root.after(50, lambda: tckr3.config(text=f'{gainers[6]}: ${gainers[7]}'))
@@ -121,27 +145,6 @@ def main():
             except KeyError:
                 pass
 
-    def plot(stock):
-        stock = yf.Ticker(stock)
-        levels = stock.history(period="1mo")
-        levels = levels.reset_index()
-        levels = np.array(levels["Close"])
-        data = stock.history(period="1d", interval="1m", prepost=True)
-        pre_market_data = data.between_time("8:00","9:30")
-        y = pre_market_data.reset_index()
-        y = np.array(y["Close"])
-        x = []
-        a = 9
-        for i in y:
-            x.append(a)
-
-        fig = Figure(figsize=(5, 4), dpi=100)
-        ax = fig.add_subplot(111)
-        ax.plot(x, y)
-        canvas = FigureCanvasTkAgg(fig, root)
-        canvas.draw()
-        canvas.get_tk_widget().grid(row=4,column=6)
-
     # clock
     clock = tk.Label(root)
     clock.grid(row=0, column=0)
@@ -166,9 +169,7 @@ def main():
     clicked.set("$ Gainers")
     drop = tk.OptionMenu(root, clicked, *screener_options).grid(row=3, column=0)
     button = tk.Button(root, text='Submit', command=lambda: submit(tckr,tckr1,tckr2,tckr3,tckr4)).grid(row=3, column=1)
-
-    stock = "^gspc"
-    plot(stock)
+    button_cmp = tk.Button(root, text='Show Graph', command=lambda: plot()).grid(row=3, column=2)
 
     tk.mainloop()
 
