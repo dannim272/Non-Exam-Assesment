@@ -1,11 +1,11 @@
 import tkinter as tk
-import requests
-import time
-import sys
-# import yfinance
-# import datetime
-# from tkhtmlview import HTMLLabel
-# hours and minutes var
+import numpy as np
+import matplotlib.pyplot as plt
+import yfinance as yf
+import requests, time, sys
+from matplotlib.figure import Figure
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 hours = 0
 minutes = 0
 g = 0
@@ -121,6 +121,27 @@ def main():
             except KeyError:
                 pass
 
+    def plot(stock):
+        stock = yf.Ticker(stock)
+        levels = stock.history(period="1mo")
+        levels = levels.reset_index()
+        levels = np.array(levels["Close"])
+        data = stock.history(period="1d", interval="1m", prepost=True)
+        pre_market_data = data.between_time("8:00","9:30")
+        y = pre_market_data.reset_index()
+        y = np.array(y["Close"])
+        x = []
+        a = 9
+        for i in y:
+            x.append(a)
+
+        fig = Figure(figsize=(5, 4), dpi=100)
+        ax = fig.add_subplot(111)
+        ax.plot(x, y)
+        canvas = FigureCanvasTkAgg(fig, root)
+        canvas.draw()
+        canvas.get_tk_widget().grid(row=4,column=6)
+
     # clock
     clock = tk.Label(root)
     clock.grid(row=0, column=0)
@@ -144,8 +165,10 @@ def main():
     clicked = tk.StringVar()
     clicked.set("$ Gainers")
     drop = tk.OptionMenu(root, clicked, *screener_options).grid(row=3, column=0)
-
     button = tk.Button(root, text='Submit', command=lambda: submit(tckr,tckr1,tckr2,tckr3,tckr4)).grid(row=3, column=1)
+
+    stock = "^gspc"
+    plot(stock)
 
     tk.mainloop()
 
