@@ -41,8 +41,12 @@ def main():
     tckr4.grid(row=(8), column=1)
 
     # tckr button
-    tckr_button = tk.Button(root, text='Graph', command=lambda: plot())
+    tckrButton = False
+    tckr_button = tk.Button(root, text='Graph', command=lambda: plot(tckrButton, tckr2Button))
     tckr_button.grid(row=4, column=0)
+    tckr2Button = False
+    tckr2_button = tk.Button(root, text='Graph', command=lambda: plot(tckrButton, tckr2Button))
+    tckr2_button.grid(row=5, column=0)
 
     def timing():
         global hours
@@ -75,11 +79,18 @@ def main():
             price = response.json()['data']['tradeDetailTabel']['rows'][0]['price']
             price_label.config(text=price)
             price_label.after(200, ticker_price)
-    def plot():
+
+    def plot(tckrButton, tckr2Button):
         if clicked.get() == "$ Gainers":
-            stock = yf.Ticker(gainers[0])
+            if tckrButton == True:
+                stock = yf.Ticker(gainers[0])
+            if tckr2Button == True:
+                stock = yf.Ticker(gainers[2])
         if clicked.get() == "$ Losers":
-            stock = yf.Ticker(losers[0])
+            if tckrButton == True:
+                stock = yf.Ticker(losers[0])
+            if tckr2Button == True:
+                stock = yf.Ticker(losers[2])
         levels = stock.history(period="1mo")
         levels = levels.reset_index()
         levels = np.array(levels["Close"])
