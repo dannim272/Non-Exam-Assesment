@@ -2,7 +2,7 @@ coded in nvim btw
 # Pre-Market Condition terminal (PMCt)
 # The Specification and Analysis is --> [here](https://github.com/dannim272/Non-Exam-Assesment/tree/master/written-spec)
 
-> [!> [!WARNING]
+> [!WARNING]
 > this software / project is supposed to be treated as a toy, DO NOT make any financial decisions with even partial help of this thing
 > also for the love of G-d dont risk more than 1% of your capital per trade
 
