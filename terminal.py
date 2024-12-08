@@ -41,12 +41,16 @@ def main():
     tckr4.grid(row=(8), column=1)
 
     # tckr button
-    tckrButton = False
-    tckr_button = tk.Button(root, text='Graph', command=lambda: plot(tckrButton, tckr2Button))
+    tckr_button = tk.Button(root, text='Graph', command=lambda: plot_tckr())
     tckr_button.grid(row=4, column=0)
-    tckr2Button = False
-    tckr2_button = tk.Button(root, text='Graph', command=lambda: plot(tckrButton, tckr2Button))
-    tckr2_button.grid(row=5, column=0)
+    tckr1_button = tk.Button(root, text='Graph', command=lambda: plot_tckr1())
+    tckr1_button.grid(row=5, column=0)
+    tckr2_button = tk.Button(root, text='Graph', command=lambda: plot_tckr2())
+    tckr2_button.grid(row=6, column=0)
+    tckr3_button = tk.Button(root, text='Graph', command=lambda: plot_tckr3())
+    tckr3_button.grid(row=7, column=0)
+    tckr4_button = tk.Button(root, text='Graph', command=lambda: plot_tckr4())
+    tckr4_button.grid(row=8, column=0)
 
     def timing():
         global hours
@@ -80,17 +84,43 @@ def main():
             price_label.config(text=price)
             price_label.after(200, ticker_price)
 
-    def plot(tckrButton, tckr2Button):
+    def plot_tckr():
         if clicked.get() == "$ Gainers":
-            if tckrButton == True:
-                stock = yf.Ticker(gainers[0])
-            if tckr2Button == True:
-                stock = yf.Ticker(gainers[2])
+            stock = gainers[0]
         if clicked.get() == "$ Losers":
-            if tckrButton == True:
-                stock = yf.Ticker(losers[0])
-            if tckr2Button == True:
-                stock = yf.Ticker(losers[2])
+            stock = losers[0]
+        plot(stock)
+
+    def plot_tckr1():
+        if clicked.get() == "$ Gainers":
+            stock = gainers[2]
+        if clicked.get() == "$ Losers":
+            stock = losers[2]
+        plot(stock)
+
+    def plot_tckr2():
+        if clicked.get() == "$ Gainers":
+            stock = gainers[4]
+        if clicked.get() == "$ Losers":
+            stock = losers[4]
+        plot(stock)
+
+    def plot_tckr3():
+        if clicked.get() == "$ Gainers":
+            stock = gainers[6]
+        if clicked.get() == "$ Losers":
+            stock = losers[6]
+        plot(stock)
+
+    def plot_tckr4():
+        if clicked.get() == "$ Gainers":
+            stock = gainers[8]
+        if clicked.get() == "$ Losers":
+            stock = losers[8]
+        plot(stock)
+
+    def plot(stock):
+        stock = yf.Ticker(stock)
         levels = stock.history(period="1mo")
         levels = levels.reset_index()
         levels = np.array(levels["Close"])
