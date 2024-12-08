@@ -1,6 +1,6 @@
-PMCt filter=lfs diff=lfs merge=lfs -text
-Non-Exam-Assesment/** filter=lfs diff=lfs merge=lfs -text
+*./ filter=lfs diff=lfs merge=lfs -text
 *.pkg filter=lfs diff=lfs merge=lfs -text
 *.so filter=lfs diff=lfs merge=lfs -text
 *.pyc filter=lfs diff=lfs merge=lfs -text
 *.py filter=lfs diff=lfs merge=lfs -text
+PMCt filter=lfs diff=lfs merge=lfs -text
