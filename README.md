@@ -1,14 +1,9 @@
-# Pre-Market Condition terminal (PMCt)
-## The Specification and Analysis is --> [here](https://github.com/dannim272/Non-Exam-Assesment/tree/master/written-spec)
 coded in nvim btw
+# Pre-Market Condition terminal (PMCt)
+# The Specification and Analysis is --> [here](https://github.com/dannim272/Non-Exam-Assesment/tree/master/written-spec)
 
-Overview: this program is designed to help the user with research of stocks for either early hours trading or investing - I will probably say this multiple times in the writing of this project but it must be noted that this program is only fit for use in the early hours of market
-
-> [!WARNING]
-> before **final** submit make sure to:
-> 1. delete 'main()' from terminal.py
-> 2. clear out the logins.db database (figure it out)
-> 3. compile the whole thing and make sure it works - [this may work](https://www.geeksforgeeks.org/create-a-single-executable-from-a-python-project/)
+## Overview:
+- This program is designed to help those who are new to trading to minimise headache of 'cherry picking' stocks to trade; this is done with the help of APIs, filters and displays. The program is simple, and is intended to get rid of all the distractions by essentially leaving only one thing to the user - where to **buy** and where to **sell** stocks
 
 ## Table of Contents
 - **Documentation + all theoretical**
