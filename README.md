@@ -2,6 +2,10 @@ coded in nvim btw
 # Pre-Market Condition terminal (PMCt)
 # The Specification and Analysis is --> [here](https://github.com/dannim272/Non-Exam-Assesment/tree/master/written-spec)
 
+> [!> [!WARNING]
+> this software / project is supposed to be treated as a toy, DO NOT make any financial decisions with even partial help of this thing
+> also for the love of G-d dont risk more than 1% of your capital per trade
+
 ## Overview:
 - This program is designed to help those who are new to trading to minimise headache of 'cherry picking' stocks to trade; this is done with the help of APIs, filters and displays. The program is simple, and is intended to get rid of all the distractions by essentially leaving only one thing to the user - where to **buy** and where to **sell** stocks
 
