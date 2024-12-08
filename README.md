@@ -13,9 +13,9 @@ coded in nvim btw
 - **Documentation + all theoretical**
     - [project ideas](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Project%20Ideas.md)
     - [specification](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Specification.md)
-- [**Running the program**](https://github.com/dannim272/Non-Exam-Assesment?tab=readme-ov-file#running-the-program)
-- [**Things to implement**](#things-to-implement)
-- [**Things that went right**](https://github.com/dannim272/Non-Exam-Assesment?tab=readme-ov-file#things-that-went-somewhat-right)
+- [Running the program](https://github.com/dannim272/Non-Exam-Assesment?tab=readme-ov-file#running-the-program)
+- [Things to implement](#things-to-implement)
+- [Things that went right](https://github.com/dannim272/Non-Exam-Assesment?tab=readme-ov-file#things-that-went-somewhat-right)
 
 ## Running the program
 - if you're in the Non-Exam-Assesment directory, cd into dist:
