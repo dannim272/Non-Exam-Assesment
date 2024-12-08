@@ -14,7 +14,16 @@ Overview: this program is designed to help the user with research of stocks for 
 - **Documentation + all theoretical**
     - [project ideas](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Project%20Ideas.md)
     - [specification](https://github.com/dannim272/Non-Exam-Assesment/blob/master/theory/Specification.md)
+- [**Running the program**]
 - [**Things to implement**](#things-to-implement)
+
+## Running the program
+- assuming you're in the Non-Exam-Assesment repo do following:
+```bash
+cd dist
+./PMCt
+```
+- else, cd into the Non-Exam-Assesment repo and then do the same thing
 
 ## Things to implement
 - Make the API work for current ticker price display - **DONE**
