@@ -1,18 +1,3 @@
-import sqlite3
-
-conn = sqlite3.connect('logins.db')
-cursor = conn.cursor()
-
-def printAll(conn,cursor):
-    cursor.execute("SELECT * FROM logins")
-    logins = cursor.fetchall()
-    print("logins:")
-    for logins in logins:
-        print(logins)
-
-def deleteAll(conn,cursor):
-    cursor.execute("DELETE FROM logins")
-    conn.commit()
-
-# deleteAll(conn,cursor)
-# printAll(conn,cursor)
+version https://git-lfs.github.com/spec/v1
+oid sha256:aa6e71ecfba7f253384904c252267086fcce031e9d82f27d570cc08968f51cb6
+size 382
