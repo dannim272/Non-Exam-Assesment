@@ -33,6 +33,10 @@ cd dist
 - Implement the regression model of some sort or something similar - **not going to work, so i'll do something less crazy**
 - Make the interface more appealing (probably darker colors) - **get done ASAP**
 - may implement graphs to compare spider (SP500) to other stocks
-    - this will require checkbutton, may work later on this (like on the weekend haha) - **done with 'caviat'**
+    - this will require checkbutton, may work later on this (like on the weekend haha) - **solution**
+
+### Solution
+- instead of checkbutton I've created bunch of buttons that display the graph of a selected graph
+- also there are no who graphs so the user cannot compare the selected stock to spy or qqq - **unfortunate** but it is what it is
 
 ## Things that went somewhat right
