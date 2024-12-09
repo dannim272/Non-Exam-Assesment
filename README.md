@@ -10,7 +10,7 @@ coded in nvim btw
 - This program is designed to help those who are new to trading to minimise headache of 'cherry picking' stocks to trade; this is done with the help of APIs, filters and displays. The program is simple, and is intended to get rid of all the distractions by essentially leaving only one thing to the user - where to **buy** and where to **sell** stocks
 
 ### Brief word before table of Contents
-- this project was intended to be written in Python - that was true for the most part of this project -, however at some point - [this] commit - everything went wrong and apparently now over half of the project is in Tex, and ironically enough Python is now 3rd most used language in the entire program. **NICE**
+- this project was intended to be written in Python - that was true for the most part of this project -, however at some point - [this](4616fd01239100bd509c75dd98bf08615ab7d4ee) commit - everything went wrong and apparently now over half of the project is in Tex, and ironically enough Python is now 3rd most used language in the entire program. **NICE**
 
 ## Table of Contents
 - **Documentation + all theoretical**
