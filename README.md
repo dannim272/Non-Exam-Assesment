@@ -43,3 +43,6 @@ cd dist
 - also there are no who graphs so the user cannot compare the selected stock to spy or qqq - **unfortunate** but it is what it is
 
 ## Things that went somewhat right
+- users can login with their username and password - **this uses SQL**
+- users can search up their stock tickers and see their price - **means that they (users) are not limited to the stocks that are available to see**
+- can filter the stocks based on certain criterion - **this is useful, or so I think**
